@@ -11,7 +11,7 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "/secure/*" })
+@WebFilter(urlPatterns = { "/secure/*", "/manage_contact", "/form" })
 public class AuthFilter extends HttpFilter {
 
 	/**
@@ -25,7 +25,7 @@ public class AuthFilter extends HttpFilter {
 		if( session != null && session.getAttribute("USER") != null ) {
 			chain.doFilter(req, res);
 		} else {
-			httpRequest.getRequestDispatcher("/login.jsp").forward(req, res);
+			httpRequest.getRequestDispatcher("/login").forward(req, res);
 		}
 	}
 

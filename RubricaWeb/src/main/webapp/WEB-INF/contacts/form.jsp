@@ -38,17 +38,17 @@ if (contact != null) {
 			<tr>
 				<% if (contact != null) { %>
 				<td>
-				<input class="w3-input w3-border w3-center" name="name" type="text" value="<%=contact.getName() %>">
+				<input class="w3-input w3-border w3-center" name="name" type="text" value="<%=contact.getName() %>" />
 				</td>
 				<td>
-				<input class="w3-input w3-border w3-center" name="surname" type="text" value="<%=contact.getSurname() %>">
+				<input class="w3-input w3-border w3-center" name="surname" type="text" value="<%=contact.getSurname() %>" />
 				</td>
 				<% } else { %>
 				<td>
-				<input class="w3-input w3-border w3-center" name="name" type="text" value="">
+				<input class="w3-input w3-border w3-center" name="name" type="text" value="" />
 				</td>
 				<td>
-				<input class="w3-input w3-border w3-center" name="surname" type="text" value="">
+				<input class="w3-input w3-border w3-center" name="surname" type="text" value="" />
 				</td>
 				<% } %>
 			</tr>
@@ -71,15 +71,14 @@ if (contact != null) {
 					<tr>
 						<td>
 						<% if (emails != null && emails.hasNext()) { %>
-						<input class="w3-input w3-border w3-center" name="email<%=i%>" type="text" value="<%=emails.next().getEmail()%>">
+						<input class="w3-input w3-border w3-center" name="emails" type="text" value="<%=emails.next().getEmail()%>" />
 						<% } else { %>
-						<input class="w3-input w3-border w3-center" name="email<%=i%>" type="text" value="">
+						<input class="w3-input w3-border w3-center" name="emails" type="text" value="" />
 						<% } %>
 						</td>
 					</tr>
 					<% } %>
-
-				</tbody>
+					</tbody>
 			</table>
 		</div>
 	</div>
@@ -97,9 +96,9 @@ if (contact != null) {
 					<tr>
 						<td>
 						<% if (phones != null && phones.hasNext()) { %>
-						<input class="w3-input w3-border w3-center" name="phone<%=i%>" type="text" value="<%=phones.next().getPhone()%>">
+						<input class="w3-input w3-border w3-center" name="phones" type="text" value="<%=phones.next().getPhone()%>" />
 						<% } else { %>
-						<input class="w3-input w3-border w3-center" name="phone<%=i%>" type="text" value="">
+						<input class="w3-input w3-border w3-center" name="phones" type="text" value="" />
 						<% } %>
 						</td>
 					</tr>
@@ -110,6 +109,7 @@ if (contact != null) {
 	</div>
 		
 		<% if (contact != null) { %>
+			<input hidden="true" name=id value=<%=contact.getId() %> />
 			<button class="w3-button w3-green w3-right" type="submit">update</button>
 		<% } else { %>	
 			<button class="w3-button w3-green w3-right" type="submit">insert</button>

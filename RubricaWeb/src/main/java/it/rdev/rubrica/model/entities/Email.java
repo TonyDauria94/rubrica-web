@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "emails")
@@ -31,4 +32,10 @@ public class Email {
 		this.contact = contact;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return email;
+	}
+	
 }

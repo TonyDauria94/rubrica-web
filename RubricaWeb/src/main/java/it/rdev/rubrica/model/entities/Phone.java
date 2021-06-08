@@ -31,4 +31,10 @@ public class Phone {
 		this.contact = contact;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return phone;
+	}
+	
 }

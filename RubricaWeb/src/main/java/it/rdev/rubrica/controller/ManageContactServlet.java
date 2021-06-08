@@ -3,7 +3,6 @@ package it.rdev.rubrica.controller;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,20 +56,15 @@ public class ManageContactServlet extends HttpServlet {
 			// Inizializzo un set di email e recupero gli input dalla request
 			Set<Email> emails = new HashSet<>();
 			
-			for (int i=0; i<10; i++) {
-				String e = request.getParameter("email" + i);
-	
+			for (String e : request.getParameterValues("emails")) {
 				
-				if(e != null) {
+				if(e != null && !e.equals("")) {
 					Email email = new Email();
 					email.setEmail(e);
+					email.setContact(c);
 					emails.add(email);
 				}
 				
-			}
-
-			for (Email e : emails) {
-				System.out.println(e.getEmail());
 			}
 			
 			c.setEmails(emails);
@@ -78,19 +72,18 @@ public class ManageContactServlet extends HttpServlet {
 			// Inizializzo un set di telefoni e recupero gli input dalla request
 			Set<Phone> phones = new HashSet<>();
 			
-			for (int i=0; i<10; i++) {
-				String p = request.getParameter("phone" + i);
+			for (String p : request.getParameterValues("phones")) {
 
-				if(p != null) {
+				if(p != null && !p.equals("")) {
 					Phone phone = new Phone();
 					phone.setPhone(p);
+					phone.setContact(c);
 					phones.add(phone);
 				}
 				
 			}
 		
 			c.setPhones(phones);
-			
 			ContactDao.insert(c);
 			
 			request.getRequestDispatcher("/")
@@ -99,7 +92,6 @@ public class ManageContactServlet extends HttpServlet {
 	    } else if(contactId != null && "update".equals(action)) {
 
 			int id = Integer.parseInt(contactId);
-			
 			Contact toUpdate = ContactDao.getContact(id);
 			
 			String name = request.getParameter("name");
@@ -111,41 +103,34 @@ public class ManageContactServlet extends HttpServlet {
 			// Inizializzo un set di email e recupero gli input dalla request
 			Set<Email> emails = new HashSet<>();
 			
-			for (int i=0; i<10; i++) {
-				String e = request.getParameter("email" + i);
-	
+			for (String e : request.getParameterValues("emails")) {
 				
-				if(e != null) {
+				if(e != null && !e.equals("")) {
 					Email email = new Email();
 					email.setEmail(e);
+					email.setContact(toUpdate);
 					emails.add(email);
 				}
 				
 			}
 
-			for (Email e : emails) {
-				System.out.println(e.getEmail());
-			}
-			
 			toUpdate.setEmails(emails);
 			
 			// Inizializzo un set di telefoni e recupero gli input dalla request
 			Set<Phone> phones = new HashSet<>();
 			
-			for (int i=0; i<10; i++) {
-				String p = request.getParameter("phone" + i);
+			for (String p : request.getParameterValues("phones")) {
 
-				if(p != null) {
+				if(p != null && !p.equals("")) {
 					Phone phone = new Phone();
 					phone.setPhone(p);
+					phone.setContact(toUpdate);
 					phones.add(phone);
 				}
 				
 			}
 		
 			toUpdate.setPhones(phones);
-			
-			
 			ContactDao.update(toUpdate);
 
 			request.getRequestDispatcher("/details?id=" + id)
