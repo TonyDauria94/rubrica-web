@@ -65,4 +65,11 @@ Set<Phone> phones = contact.getPhones();
 			</table>
 		</div>
 	</div>
+	
+	<a class="w3-button w3-green w3-right w3-padding w3-margin" 
+	href="${pageContext.request.contextPath}/form?id=<%=contact.getId()%>">update</a>
+	
+	<a class="w3-button w3-red w3-right w3-padding w3-margin" 
+	href="${pageContext.request.contextPath}/manage_contact?action=delete&id=<%=contact.getId()%>">delete</a>
+	
 </div>

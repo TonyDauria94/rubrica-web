@@ -25,4 +25,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<a class="w3-button w3-green w3-right w3-padding w3-margin" href="${pageContext.request.contextPath}/form">add contact</a>
+					
 </div>

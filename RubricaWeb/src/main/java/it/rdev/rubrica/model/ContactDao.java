@@ -55,7 +55,8 @@ public class ContactDao {
 		EntityTransaction trans = em.getTransaction();
 		try {
 			trans.begin();
-			em.remove(em.merge(c));
+			c = em.find(Contact.class, c.getId());
+			em.remove(c);
 			//em.remove(c);
 			trans.commit();
 		} catch (Exception e) {

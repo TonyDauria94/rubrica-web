@@ -27,9 +27,13 @@
     
     <% } else if ("list".equals(page_name)) { %>
    		
-		<%@include file="contacts_list.jsp"%>
+		<%@include file="list.jsp"%>
 		
-    <% } %>
+    <% } else if ("form".equals(page_name)) { %>
+		
+		<%@include file="form.jsp"%>
+	
+	<% } %>
     </div>
 </body>
 </html>
