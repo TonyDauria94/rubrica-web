@@ -26,9 +26,11 @@ public class Contact {
 	private String name;
 	@Column(name = "surname",  length = 50, nullable = false)
 	private String surname;
-	@OneToMany(mappedBy = "contact", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "contact", fetch = FetchType.LAZY, 
+			orphanRemoval = true, cascade = CascadeType.ALL)
 	private Set<Email> emails;
-	@OneToMany(mappedBy = "contact", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "contact", fetch = FetchType.LAZY, 
+			orphanRemoval = true, cascade = CascadeType.ALL)
 	private Set<Phone> phones;
 	
 	public Integer getId() {
