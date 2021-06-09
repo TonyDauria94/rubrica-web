@@ -4,8 +4,6 @@
 <%@page import="it.rdev.rubrica.model.entities.Phone"%>
 <%@page import="java.util.Set"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 
 <%
 Contact contact = (Contact) request.getAttribute("contact");
@@ -26,7 +24,7 @@ if (contact != null) {
 <form method="post" action="${pageContext.request.contextPath}/manage_contact?action=insert" style="max-width: 1200px;" class="w3-content w3-row w3-margin-top">
 <% } %>
 
-	<table class="w3-table-all w3-hoverable w3-centered">
+	<table class="w3-table-all w3-centered">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -60,7 +58,7 @@ if (contact != null) {
 
 	<div class="w3-col l6">
 		<div class="w3-responsive w3-section">
-			<table class="w3-table-all w3-hoverable w3-centered">
+			<table class="w3-table-all w3-centered">
 				<thead>
 					<tr>
 						<th>Emails</th>
@@ -85,7 +83,7 @@ if (contact != null) {
 
 	<div class="w3-col l6">
 		<div class="w3-responsive w3-section">
-			<table class="w3-table-all w3-hoverable w3-centered">
+			<table class="w3-table-all w3-centered">
 				<thead>
 					<tr>
 						<th>Phones</th>
